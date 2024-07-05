@@ -4,10 +4,10 @@ import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { db, storage } from "../../lib/firebase";
 
 const FormComponent = ({ user, editingMember, setEditingMember, mutate }) => {
-  const [name, setName] = useState("Kiss Tamás");
-  const [job, setJob] = useState("telephelyvezető, telephelyi felvásárlás");
-  const [phone, setPhone] = useState("+36 70 709 18 27");
-  const [email, setEmail] = useState("tamas.kiss@bsvgro.hu");
+  const [name, setName] = useState("");
+  const [job, setJob] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
   const [file, setFile] = useState(null);
   const [loading, setLoading] = useState(false);
 
