@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { addDoc, collection, doc, getDownloadURL, updateDoc, uploadBytes } from "firebase/firestore";
-import { ref } from "firebase/storage";
+import { addDoc, collection, doc, updateDoc } from "firebase/firestore";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { db, storage } from "../../lib/firebase";
 
 const FormComponent = ({ user, editingMember, setEditingMember, mutate }) => {

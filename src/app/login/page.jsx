@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useRouter } from "next/navigation";
-import app from "../../lib/firebase"; // Ensure this points to your Firebase config file
+import { app } from "../../lib/firebase"; // Ensure this points to your Firebase config file
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -31,16 +31,8 @@ export default function Login() {
       const errorCode = error.code;
       const errorMessage = error.message;
 
-      console.log(errorMessage)
-
       console.error("Error signing in:", errorCode, errorMessage);
-      
-      if(errorMessage === 'Firebase: Error (auth/invalid-credential).') {
-        setErrorMessage('Hibás bejelentkezési adatok')
-      } else {
-
-        setErrorMessage(errorMessage); // Set error message
-      }
+      setErrorMessage(errorMessage); // Set error message
 
       setEmail(""); // Clear email input
       setPassword(""); // Clear password input
