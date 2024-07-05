@@ -3,11 +3,12 @@
 import React from "react";
 import { getDocs, collection } from "firebase/firestore";
 import { db } from "../lib/firebase"; // Ensure this points to your Firebase config file
+import { cookies } from "next/headers";
 
 // Fetcher function to get data from Firestore
 
 async function fetchMembers() {
-  const querySnapshot = await getDocs(collection(db, "members"), { cache: 'force-cache' });
+  const querySnapshot = await getDocs(collection(db, "members"));
   const members = querySnapshot.docs.map(doc => ({
     id: doc.id,
     ...doc.data()
@@ -16,6 +17,7 @@ async function fetchMembers() {
 }
 
 export default async function Home() {
+  cookies()
   const data = await fetchMembers();
 
 
