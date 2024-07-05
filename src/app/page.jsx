@@ -4,6 +4,7 @@ import React from "react";
 import { getDocs, collection } from "firebase/firestore";
 import { db } from "../lib/firebase"; // Ensure this points to your Firebase config file
 import { cookies } from "next/headers";
+import Image from "next/image";
 
 // Fetcher function to get data from Firestore
 
@@ -18,8 +19,8 @@ async function fetchMembers() {
 
 export default async function Home() {
   cookies()
+  
   const data = await fetchMembers();
-
 
   return (
     <div className="container mx-auto">
@@ -28,7 +29,9 @@ export default async function Home() {
         {data.map((item) => (
           <li key={item.id} className="border p-4 mb-2 flex items-center">
             {item.photoURL && (
-              <img
+              <Image
+                width={300}
+                height={300}
                 src={item.photoURL}
                 alt={item.name}
                 className="w-16 h-16 object-cover rounded-full mr-4"

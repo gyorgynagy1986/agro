@@ -29,6 +29,9 @@ export default function Home() {
   // Fetching the data
   const { data, error } = useSWR("members", fetcher, { revalidateOnFocus: false });
 
+  console.log('this is from the client side',data)
+
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
