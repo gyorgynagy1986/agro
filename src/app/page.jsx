@@ -6,10 +6,8 @@ import { db } from "../lib/firebase"; // Ensure this points to your Firebase con
 
 // Fetcher function to get data from Firestore
 
-'force-dynamic'
-
 async function fetchMembers() {
-  const querySnapshot = await getDocs(collection(db, "members"), { cache: 'no-store' });
+  const querySnapshot = await getDocs(collection(db, "members"), { cache: 'force-cache' });
   const members = querySnapshot.docs.map(doc => ({
     id: doc.id,
     ...doc.data()
