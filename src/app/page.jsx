@@ -6,7 +6,7 @@ import { db } from "../lib/firebase"; // Ensure this points to your Firebase con
 
 // Fetcher function to get data from Firestore
 async function fetchMembers() {
-  const querySnapshot = await getDocs(collection(db, "members"));
+  const querySnapshot = await getDocs(collection(db, "members"), { cache: 'no-store' });
   const members = querySnapshot.docs.map(doc => ({
     id: doc.id,
     ...doc.data()
@@ -17,7 +17,7 @@ async function fetchMembers() {
 export default async function Home() {
   const data = await fetchMembers();
 
-  
+
   return (
     <div className="container mx-auto">
       <h1 className="text-2xl font-bold my-4">Public Data</h1>
