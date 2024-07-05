@@ -1,26 +1,23 @@
-"use client"
 
 // pages/data.js
 import React from "react";
-import useSWR from "swr";
 import { getDocs, collection } from "firebase/firestore";
 import { db } from "../lib/firebase"; // Ensure this points to your Firebase config file
 
 // Fetcher function to get data from Firestore
-const fetcher = async () => {
+async function fetchMembers() {
   const querySnapshot = await getDocs(collection(db, "members"));
-  const documents = querySnapshot.docs.map((doc) => ({
+  const members = querySnapshot.docs.map(doc => ({
     id: doc.id,
-    ...doc.data(),
+    ...doc.data()
   }));
-  return documents;
-};
+  return members;
+}
 
-export default function Home() {
-  const { data, error } = useSWR("members", fetcher);
+export default async function Home() {
+  const data = await fetchMembers();
 
-  if (error) return <div>Error loading data</div>;
-  if (!data) return <div>Loading...</div>;
+  console.log(data)
 
   return (
     <div className="container mx-auto">

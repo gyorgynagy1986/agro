@@ -6,13 +6,13 @@ import { getStorage } from "firebase/storage"; // Import Firebase Storage
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBDrWaI5qeejcV3eQ_vHyHTX1oX9qxUtc0",
-  authDomain: "agro-b126f.firebaseapp.com",
-  projectId: "agro-b126f",
-  storageBucket: "agro-b126f.appspot.com",
-  messagingSenderId: "1034542864411",
-  appId: "1:1034542864411:web:48a73076327265de6f40be",
-  measurementId: "G-BJDRCG25EN"
+  apiKey:process.env.NEXT_PUBLIC_APIKEY,
+  authDomain: process.env.NEXT_PUBLIC_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_STORAGE,
+  messagingSenderId: process.env.NEXT_PUBLIC_MESSAGE_SERNDER,
+  appId:process.env.NEXT_PUBLIC_APPID,
+  measurementId: process.env.NEXT_PUBLIC_PUBLIC_MEAS_IS
 };
 
 // Initialize Firebase
