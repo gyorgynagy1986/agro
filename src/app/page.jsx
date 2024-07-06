@@ -6,7 +6,7 @@ import { db } from "../lib/firebase"; // Ensure this points to your Firebase con
 import { cookies } from "next/headers";
 import Image from "next/image";
 
-// Fetcher function to get data from Firestore
+// Get data from Firebase
 
 async function fetchMembers() {
   const querySnapshot = await getDocs(collection(db, "members"));
@@ -19,7 +19,6 @@ async function fetchMembers() {
 
 export default async function Home() {
   cookies()
-  
   const data = await fetchMembers();
 
   return (

@@ -8,7 +8,7 @@ const MemberItemComponent = ({ member, handleEdit, handleDelete, loading }) => (
       <div>Job: {member.job}</div>
       <div>Phone: {member.phone}</div>
       <div>Email: {member.email}</div>
-      {member.photoURL && <Image src={member.photoURL} alt={member.name} className="w-16 h-16 object-cover rounded-full" />}
+      {member.photoURL && <Image width={300} height={300} src={member.photoURL} alt={member.name} className="w-16 h-16 object-cover rounded-full" />}
     </div>
     <div className="flex space-x-2">
       <button
