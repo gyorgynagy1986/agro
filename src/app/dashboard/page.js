@@ -91,7 +91,7 @@ export default function Home() {
   };
 
   if (error) return <div>Error loading data</div>;
-  if (!data) return <div>Loading...</div>;
+  if (!data) return <LoadingSpinnerComponent />;
 
   return (
     <>
@@ -126,7 +126,7 @@ export default function Home() {
         />
 
         {loading && <LoadingSpinnerComponent />}
-      </div> : 'upss' } 
+      </div> : <LoadingSpinnerComponent /> } 
     </>
   );
 }
